@@ -7,3 +7,18 @@ spring:
     vectorstore:
       pgvector:
         table-name: movie_plots
+    ollama:
+      init:
+        pull-model-strategy: when_missing
+        chat:
+          include: false
+      embedding:
+        options:
+          model: mxbai-embed-large
+
+com:
+  behl:
+    recommender:
+      omdb:
+        base-url: https://www.omdbapi.com
+        api-key: ${OMDB_API_KEY}
