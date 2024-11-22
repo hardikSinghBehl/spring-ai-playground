@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+  pgvector:
+    image: pgvector/pgvector:pg17
+    container_name: pgvector
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=moviedb
+    ports:
+      - 5432:5432
+    networks:
+      - movie-recommender
+
+  ollama:
+    image: ollama/ollama:0.4.2
+    volumes:
+      - ./ollama:/root/.ollama
+    ports:
+      - 11434:11434
+    networks:
+      - movie-recommender
+
+  movie-recommendation-system:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: movie-recommendation-system
+    ports:
+    - 8080:8080
+    depends_on:
+      - pgvector
+      - ollama
+    environment:
+      POSTGRES_URL: jdbc:postgresql://pgvector:5432/moviedb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      OMDB_API_KEY: # Get an API key here - https://www.omdbapi.com/apikey.aspx
+      spring.ai.ollama.base-url: http://ollama:11434
+    networks:
+      - movie-recommender
+
+networks:
+  movie-recommender:
