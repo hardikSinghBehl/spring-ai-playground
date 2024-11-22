@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: ${POSTGRES_URL}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  ai:
+    vectorstore:
+      pgvector:
+        table-name: movie_plots

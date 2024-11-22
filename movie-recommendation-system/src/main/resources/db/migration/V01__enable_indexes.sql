@@ -1,0 +1,3 @@
+CREATE EXTENSION vector;
+CREATE EXTENSION hstore;
+CREATE EXTENSION "uuid-ossp";
