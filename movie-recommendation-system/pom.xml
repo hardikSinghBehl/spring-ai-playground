@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.0</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.behl</groupId>
+    <artifactId>spring-ai-playground</artifactId>
+    <version>0.0.1</version>
+    <name>movie-recommendation-system</name>
+    <description>Movie recommendation system demonstrating the power of semantic searching.</description>
+
+    <properties>
+        <java.version>23</java.version>
+    </properties>
+
+    <developers>
+        <developer>
+            <id>hardikSinghBehl</id>
+            <name>Hardik Singh Behl</name>
+            <email>behl.hardiksingh@gmail.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>UTC +5:30</timezone>
+        </developer>
+    </developers>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
