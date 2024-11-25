@@ -1,0 +1,11 @@
+spring:
+  ai:
+    openai:
+      image:
+        api-key: ${OPENAI_API_KEY}
+        options:
+          response-format: url
+          model: dall-e-3
+          style: vivid
+          size: 1024x1024
+          quality: standard
