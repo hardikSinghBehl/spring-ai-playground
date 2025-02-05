@@ -1,0 +1,31 @@
+spring:
+  ai:
+    ollama:
+      chat:
+        options:
+          model: llama3.1
+      embedding:
+        options:
+          model: nomic-embed-text
+      init:
+        pull-model-strategy: when_missing
+
+com:
+  behl:
+    evaluator:
+      model: mistral
+      max-iterations: 3
+      acceptable-score: 0.8
+      system-prompt: classpath:prompts/evaluator-system-prompt.st
+      user-prompt: classpath:prompts/evaluator-user-prompt.st
+    optimizer:
+      feedback-prompt: classpath:prompts/optimization-feedback-prompt.st
+
+logging:
+  level:
+    org:
+      springframework:
+        ai:
+          chat:
+            client:
+              advisor: DEBUG
