@@ -1,0 +1,33 @@
+spring:
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-5
+          temperature: 1
+      embedding:
+        options:
+          model: text-embedding-3-small
+          dimensions: 512
+    vectorstore:
+      pinecone:
+        api-key: ${PINECONE_API_KEY}
+        index-name: ${PINECONE_DB_INDEX_NAME}
+  data:
+    redis:
+      url: ${REDIS_URL}
+
+com:
+  behl:
+    semantic:
+      cache:
+        similarity-threshold: 0.8
+        content-field: question
+        embedding-field: embedding
+        metadata-field: answer
+
+logging:
+  level:
+    com:
+      behl: DEBUG
